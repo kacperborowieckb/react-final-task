@@ -1,2 +1,2 @@
 export { httpService } from './httpService'
-export * from './'
+export * from './user'

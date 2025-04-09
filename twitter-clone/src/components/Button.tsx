@@ -17,7 +17,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-md ${className}`}
+      className={`rounded-md border w-fit border-gray-950 px-4 py-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 cursor-pointer ${className}`}
       onClick={onClick}
       disabled={disabled}
       {...restProps}

@@ -8,18 +8,20 @@ export type RegisterPayload = {
 }
 
 const USER_ENDPOINTS = {
-    LOGIN: '/login',
-    REGISTER: '/register'
+    LOGIN: '/users',
+    REGISTER: '/users'
 } as const
 
-export async function login(email: string): Promise<User> {
+async function login(email: string): Promise<User> {
     return (await httpService.get<User>(`${USER_ENDPOINTS.LOGIN}/${email}`)).data
 }
 
-export async function register(data: RegisterPayload): Promise<void> {
-    const userId = data.name.replace(/\s/g, '').toLowerCase()
-
-    await httpService.post(USER_ENDPOINTS.REGISTER, { ...data, id: userId })
+async function register(data: RegisterPayload): Promise<void> {
+    await httpService.post(USER_ENDPOINTS.REGISTER, { ...data, id: data.email })
 }
 
+export default {
+    login,
+    register
+}
 

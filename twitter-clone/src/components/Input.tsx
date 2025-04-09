@@ -5,6 +5,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
+  hasError: boolean;
 };
 
 export default function Input({
@@ -13,6 +14,7 @@ export default function Input({
   type = 'text',
   disabled = false,
   className = '',
+  hasError = false,
   ...restProps
 }: InputProps) {
   return (
@@ -20,7 +22,9 @@ export default function Input({
       type={type}
       value={value}
       onChange={onChange}
-      className={`rounded-md ${className}`}
+      className={`rounded-md border min-w-64 border-gray-900 px-4 py-2 ${
+        hasError ? 'border-red-500' : ''
+      } ${className}`.trim()}
       disabled={disabled}
       {...restProps}
     />
