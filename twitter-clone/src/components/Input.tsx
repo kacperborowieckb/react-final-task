@@ -5,7 +5,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
-  hasError: boolean;
+  hasError?: boolean;
 };
 
 export default function Input({

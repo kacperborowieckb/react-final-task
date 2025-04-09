@@ -10,7 +10,6 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export default function Button({
   children,
   onClick,
-  type = 'button',
   disabled = false,
   className = '',
   ...restProps

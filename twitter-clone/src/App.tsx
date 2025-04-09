@@ -1,6 +1,6 @@
 import AppRouter from '@/router';
 
-import { UserProvider } from '@/contexts/UserContext';
+import { UserProvider } from '@/contexts/UserProvider';
 
 function App() {
   return (

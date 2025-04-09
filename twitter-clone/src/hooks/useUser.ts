@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
 
+import userApi, { RegisterPayload } from '@/api/user'
 import { UserContext, UserContextType } from "@/contexts";
-import userApi from '@/api/user'
 
 type UseUserReturn = UserContextType & {
   login: (email: string) => Promise<void>;
-  register: () => Promise<void>;
+  register: (data: RegisterPayload) => Promise<void>;
   logout: () => void;
 };
 
@@ -24,7 +24,7 @@ export function useUser(): UseUserReturn {
     if (userDataRaw) {
       setUser(JSON.parse(userDataRaw))
     }
-  }, [])
+  })
 
   async function login(email: string) {
     const userData = await userApi.login(email)
@@ -33,7 +33,10 @@ export function useUser(): UseUserReturn {
     localStorage.setItem(USER_KEY, JSON.stringify(userData))
   }
 
-  async function register() {}
+  async function register(data: RegisterPayload) {
+    await userApi.register(data)
+    await login(data.email)
+  }
 
   function logout() {
     setUser(null)
