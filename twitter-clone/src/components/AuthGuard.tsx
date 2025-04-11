@@ -1,15 +1,19 @@
-import { useUser } from '@/hooks/useUser';
+import { useNavigate } from 'react-router-dom';
+
+import { useUser } from '@/hooks';
+import { PATHS } from '@/router';
 
 type AuthGuardProps = {
   children: React.ReactNode;
-  fallback?: React.ReactNode;
 };
 
-export default function AuthGuard({
-  children,
-  fallback = null,
-}: AuthGuardProps) {
+export default function AuthGuard({ children }: AuthGuardProps) {
   const { user } = useUser();
+  const navigate = useNavigate();
 
-  return <>{user ? children : fallback}</>;
+  if (!user) {
+    navigate(PATHS.LOGIN);
+  }
+
+  return children;
 }
