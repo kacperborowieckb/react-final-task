@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import sanitizeHtml from 'sanitize-html';
 
 import { Button, Container } from '@/components';
 import { useUser } from '@/hooks';
@@ -15,13 +16,17 @@ export default function NewTweetForm() {
 
   const { user } = useUser();
 
+  function isFieldValid(): boolean {
+    return tweetContent.length >= 1 && tweetContent.length <= 140;
+  }
+
   async function handleSubmitTweet() {
     if (!user) return;
 
     const payload: Tweet = {
       id: crypto.randomUUID(),
       authorId: user.email,
-      text: tweetContent,
+      text: sanitizeHtml(tweetContent),
     };
 
     const { data: newTweet, error } = await tryCatch<Tweet>(
@@ -45,14 +50,19 @@ export default function NewTweetForm() {
     <>
       <Container className="my-6 !p-0">
         <textarea
-          rows={3}
           className="w-full h-full block p-4 max-h-[248px]"
+          placeholder="What's happening?"
+          rows={3}
           value={tweetContent}
           onChange={(e) => setTweetContent(e.target.value)}
         />
       </Container>
       <div className="flex">
-        <Button className="ml-auto" onClick={handleSubmitTweet}>
+        <Button
+          className="ml-auto"
+          onClick={handleSubmitTweet}
+          disabled={!isFieldValid()}
+        >
           Tweet
         </Button>
       </div>

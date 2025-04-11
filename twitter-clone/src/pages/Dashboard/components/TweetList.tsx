@@ -1,35 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { TweetContext } from '@/contexts';
-import { tryCatch } from '@/utils';
-import { getTweets } from '@/api';
 import { Container } from '@/components';
 import Avatar from './Avatar';
 
 export default function TweetList() {
-  const { tweets, setTweets } = useContext(TweetContext);
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const { tweets, fetchTweets, fetchingError } = useContext(TweetContext);
 
   useEffect(() => {
-    async function fetchTweets() {
-      const { data, error } = await tryCatch(getTweets());
-
-      if (error) {
-        setErrorMessage('Failed to get tweets');
-
-        return;
-      }
-
-      setTweets(data.reverse());
-    }
-
     fetchTweets();
   });
 
   return (
     <div className="flex flex-col gap-4 my-4">
-      {errorMessage ? (
-        <p>{errorMessage}</p>
+      {fetchingError ? (
+        <p>{fetchingError}</p>
       ) : (
         tweets.map(({ text, id, authorId }) => {
           return (
