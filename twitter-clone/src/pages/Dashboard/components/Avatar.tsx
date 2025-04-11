@@ -1,4 +1,8 @@
-export default function Avatar({ name }: { name: string }) {
+type AvatarProps = {
+  name: string;
+};
+
+export default function Avatar({ name }: AvatarProps) {
   const initials = name.split(' ').join().slice(0, 2).toUpperCase();
 
   return (
