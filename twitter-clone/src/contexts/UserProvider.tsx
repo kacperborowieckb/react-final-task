@@ -1,6 +1,7 @@
 import { useState, ReactNode } from 'react';
 
 import { User } from '@/types';
+import { USER_KEY } from '@/hooks';
 
 import { UserContext } from './UserContext';
 
@@ -9,7 +10,11 @@ export type UserProviderProps = {
 };
 
 export function UserProvider({ children }: UserProviderProps) {
-  const [user, setUser] = useState<User>(null);
+  const [user, setUser] = useState<User>(() => {
+    const storedUser = localStorage.getItem(USER_KEY);
+
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   const contextValue = {
     user,

@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
-import userApi, { RegisterPayload } from '@/api/user'
+import * as userApi from '@/api/user'
+import { RegisterPayload } from '@/api'
 import { UserContext, UserContextType } from "@/contexts";
 
 type UseUserReturn = UserContextType & {
@@ -14,17 +15,7 @@ export const USER_KEY = 'user'
 export function useUser(): UseUserReturn {
   const context = useContext(UserContext);
 
-  const { user, setUser } = context
-
-  useEffect(() => {
-    if (user) return
-
-   const userDataRaw = localStorage.getItem(USER_KEY)
-   
-    if (userDataRaw) {
-      setUser(JSON.parse(userDataRaw))
-    }
-  })
+  const { setUser } = context
 
   async function login(email: string) {
     const userData = await userApi.login(email)

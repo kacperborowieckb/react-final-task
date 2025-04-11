@@ -59,6 +59,7 @@ export default function Signup() {
           className="flex flex-col gap-4"
           onSubmit={handleSubmit(submitForm)}
         >
+          {/* Ideally map through all with .map */}
           <Input
             placeholder="Email"
             {...register('email')}

@@ -40,7 +40,7 @@ export default function Login() {
       navigate(PATHS.HOME);
     }
 
-    if ((error as AxiosError).status === 404) {
+    if ((error as AxiosError)?.status === 404) {
       setLoginError('Wrong email or password');
 
       return;
@@ -57,6 +57,7 @@ export default function Login() {
           className="flex flex-col gap-4"
           onSubmit={handleSubmit(submitForm)}
         >
+          {/* Ideally map through all with .map */}
           <Input
             placeholder="Email"
             {...register('email')}

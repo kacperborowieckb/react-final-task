@@ -1,11 +1,13 @@
 import AppRouter from '@/router';
 
-import { UserProvider } from '@/contexts/UserProvider';
+import { UserProvider, TweetProvider } from '@/contexts';
 
 function App() {
   return (
     <UserProvider>
-      <AppRouter />;
+      <TweetProvider>
+        <AppRouter />;
+      </TweetProvider>
     </UserProvider>
   );
 }

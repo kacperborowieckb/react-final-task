@@ -20,7 +20,7 @@ async function register(data: RegisterPayload): Promise<void> {
     await httpService.post(USER_ENDPOINTS.REGISTER, { ...data, id: data.email })
 }
 
-export default {
+export {
     login,
     register
 }
