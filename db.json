@@ -14,6 +14,16 @@
       "id": "3",
       "authorId": "ameliawarner@yahoo.com",
       "text": "Describe your relationship with JavaScript with one word."
+    },
+    {
+      "id": "3b6c77d7-0791-40ca-8cb6-53c04d8deb4e",
+      "authorId": "test@mail.com",
+      "text": "my new tweet <br/> <br/> test"
+    },
+    {
+      "id": "10e51e5b-07ec-4c41-a13e-22a70743d74c",
+      "authorId": "test@mail.com",
+      "text": "wrong html post <br /> <br /> dsds"
     }
   ],
   "users": [
