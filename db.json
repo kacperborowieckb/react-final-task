@@ -1,12 +1,56 @@
 {
-    "tweets": [
-        {"id": "1", "author_id": "johnsmith", "text": "What are the pros of object-oriented programming?<br><br>Please, explain as if I'm 5."},
-        {"id": "2", "author_id": "carlanotarobot", "text": "Why use a debugger when you can fill your code with hundreds of <code>print()</code> statements?"},
-        {"id": "3", "author_id": "ameliawarner", "text": "Describe your relationship with JavaScript with one word."}
-    ],
-    "users": [
-        {"id": "johnsmith", "name": "John Smith", "email": "johnsmith@gmail.com"},
-        {"id": "carlanotarobot", "name": "Carla Notarobot", "email": "carlanotarobot@hotmail.com"},
-        {"id": "ameliawarner", "name": "Amelia Warner", "email": "ameliawarner@yahoo.com"}
-    ]
+  "tweets": [
+    {
+      "id": "1",
+      "authorId": "johnsmith@gmail.com",
+      "text": "What are the pros of object-oriented programming?<br><br>Please, explain as if I'm 5."
+    },
+    {
+      "id": "2",
+      "authorId": "carlanotarobot@hotmail.com",
+      "text": "Why use a debugger when you can fill your code with hundreds of <code>print()</code> statements?"
+    },
+    {
+      "id": "3",
+      "authorId": "ameliawarner@yahoo.com",
+      "text": "Describe your relationship with JavaScript with one word."
+    },
+    {
+      "id": "3b6c77d7-0791-40ca-8cb6-53c04d8deb4e",
+      "authorId": "test@mail.com",
+      "text": "my new tweet <br/> <br/> test"
+    },
+    {
+      "id": "10e51e5b-07ec-4c41-a13e-22a70743d74c",
+      "authorId": "test@mail.com",
+      "text": "wrong html post <br /> <br /> dsds"
+    }
+  ],
+  "users": [
+    {
+      "id": "johnsmith@gmail.com",
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com"
+    },
+    {
+      "id": "carlanotarobot@hotmail.com",
+      "name": "Carla Notarobot",
+      "email": "carlanotarobot@hotmail.com"
+    },
+    {
+      "id": "ameliawarner@yahoo.com",
+      "name": "Amelia Warner",
+      "email": "ameliawarner@yahoo.com"
+    },
+    {
+      "id": "test@mail.com",
+      "email": "test@mail.com",
+      "name": "test"
+    },
+    {
+      "id": "test@mail.com",
+      "email": "test@mail.com",
+      "name": "test"
+    }
+  ]
 }
